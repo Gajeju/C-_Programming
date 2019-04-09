@@ -1,4 +1,4 @@
-﻿namespace Baseball_KDH23
+﻿namespace bubble
 {
     partial class Form1
     {
@@ -28,56 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonReset = new System.Windows.Forms.Button();
-            this.buttonPlay = new System.Windows.Forms.Button();
-            this.textBoxIn = new System.Windows.Forms.TextBox();
-            this.textBoxOut = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // buttonReset
+            // textBox1
             // 
-            this.buttonReset.Location = new System.Drawing.Point(59, 392);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(75, 23);
-            this.buttonReset.TabIndex = 0;
-            this.buttonReset.Text = "Reset";
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            this.textBox1.Location = new System.Drawing.Point(155, 57);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(204, 21);
+            this.textBox1.TabIndex = 0;
             // 
-            // buttonPlay
+            // textBox2
             // 
-            this.buttonPlay.Location = new System.Drawing.Point(444, 392);
-            this.buttonPlay.Name = "buttonPlay";
-            this.buttonPlay.Size = new System.Drawing.Size(75, 23);
-            this.buttonPlay.TabIndex = 2;
-            this.buttonPlay.Text = "Play";
-            this.buttonPlay.UseVisualStyleBackColor = true;
-            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
+            this.textBox2.Location = new System.Drawing.Point(155, 145);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(204, 21);
+            this.textBox2.TabIndex = 1;
             // 
-            // textBoxIn
+            // button1
             // 
-            this.textBoxIn.Location = new System.Drawing.Point(419, 37);
-            this.textBoxIn.Name = "textBoxIn";
-            this.textBoxIn.Size = new System.Drawing.Size(100, 21);
-            this.textBoxIn.TabIndex = 3;
+            this.button1.Location = new System.Drawing.Point(294, 236);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "계산";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBoxOut
+            // label1
             // 
-            this.textBoxOut.Location = new System.Drawing.Point(59, 102);
-            this.textBoxOut.Multiline = true;
-            this.textBoxOut.Name = "textBoxOut";
-            this.textBoxOut.Size = new System.Drawing.Size(460, 241);
-            this.textBoxOut.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(47, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "정렬할 값 :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(47, 148);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "버블 정렬 :";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 482);
-            this.Controls.Add(this.textBoxOut);
-            this.Controls.Add(this.textBoxIn);
-            this.Controls.Add(this.buttonPlay);
-            this.Controls.Add(this.buttonReset);
+            this.ClientSize = new System.Drawing.Size(444, 312);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -87,10 +96,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonReset;
-        private System.Windows.Forms.Button buttonPlay;
-        private System.Windows.Forms.TextBox textBoxIn;
-        private System.Windows.Forms.TextBox textBoxOut;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

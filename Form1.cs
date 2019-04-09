@@ -8,101 +8,49 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Baseball_KDH23
+//2015108223 김동현 컴퓨터프로그래밍 과제
+
+namespace bubble
 {
     public partial class Form1 : Form
     {
-        Random rand;
-        int[] setNum, playNum;
-        int nTry, nStrike, nBall;
-
         public Form1()
         {
             InitializeComponent();
-            rand = new Random((int)DateTime.Now.Ticks);  // 랜덤수 초기화
-            setNum = new int[4];  // 컴퓨터가 생성한 데이터 셋
-            playNum = new int[4];  // 사용자가 예측한 숫자 셋
-            nTry = 0;    // 플레이 횟수 숫자
-
         }
-        // 서로다른 4개의 랜덤 숫자셋 생성 ---------------------------
-        public int[] getDataSet()
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            bool flag;
-            int[] checkSet = new int[10];
-            int[] aSet = new int[4];
+            string str = textBox1.Text;               //읽어들인 문자열을 str 변수에 배정
+            string[] a = str.Split(',');              //str의 문자열을 , 로 나누어 a 배열에 각각 배정합니다.
+            int[] b;                                  //a배열의 문자열을 정수로 바꾸어 넣어줄 배열 선언
+            b = new int[a.Length];                    //a배열의 길이만큼 b배열의 객체 생성
 
-          //  label1.Text = "";
-            aSet[0] = rand.Next(8) + 1;
-            checkSet[aSet[0]] = 1;   // 선택된 인덱스 숫자를 1로세트 
-
-            for (int i = 1; i < 4; i++)
+            for (int i = 0; i < b.Length; i++)        /*i를 0부터 b배열의 길이보다 작은 범위까지 1씩 증가시키며 
+                                                         a배열의 i번째 인덱스의 값을 b배열의 배정합니다.*/
             {
-                do
-                {
-                    flag = true;
-                    aSet[i] = rand.Next(8) + 1;
-                    if (checkSet[aSet[i]] == 1) flag = false;
-                    else checkSet[aSet[i]] = 1;
-
-                } while (flag == false);
+                b[i] = int.Parse(a[i]);
             }
-            return aSet;
-        }
-        // 입력 창에서 데이터 입력으로부터 사용자 숫제셋 생성------------------------
-        public int[] getPlayData(string s)
-        {
-            int[] p = new int[4];
-            int n2;
-
-            n2 = int.Parse(s);
-
-            p[0] = n2 / 1000;
-            p[1] = (n2 / 100) % 10;
-            p[2] = (n2 / 10) % 10;
-            p[3] = n2 % 10;
-
-            return p;
-        }
-
-        // 리셋버튼 클릭시 출력창 초기화 및 컴퓨터 숫자셋 생성----------------------
-        private void buttonReset_Click(object sender, EventArgs e)
-        {
-            setNum = getDataSet();
-            //label1.Text = "";
-            textBoxOut.Text = "";
-            textBoxIn.Text = "";
-            nTry = 0;
-            //checkBox1.Checked = false;
-        }
-        // 플레이 버튼 누를 경우 ------------------------------------------
-        private void buttonPlay_Click(object sender, EventArgs e)
-        {
-            playNum = getPlayData(textBoxIn.Text);
-            nTry++;
-            nStrike = 0;    // 스트라익 숫자  0으로 초기화
-            nBall = 0;     // 볼 숫자 0으로 초기화
-
-            for (int i = 0; i < 4; i++)
+                
+            for (int i = 1; i < b.Length; i++)        //i를 1부터 b배열의 길이보다 작은 범위까지 1씩 증가시킵니다.
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < i; j++)           //i가 1씩 증가할때마다 j를 0부터 i보다 작은 범위까지 1씩 증가시킵니다.
                 {
-                    if (playNum[i] == setNum[j])
+                    if (b[j] > b[i])                  /*i번째 인덱스의 값이 j번째 인덱스의 값보다 클 경우
+                                                        m에 b[i]를 배정하고 b[i]에는 b[j] 를 배정 b[j]에는
+                                                        다시 m을 배정하는 방식으로 서로의 순서를 바꿔줍니다.*/
+
                     {
-                        if (i == j) nStrike++;   // 위치와 숫자가 같으면 스트라익
-                        else nBall++;            // 위치는 달라도 숫자가 같으면 볼
+                        int m = b[i];
+                        b[i] = b[j];
+                        b[j] = m;
                     }
                 }
             }
-
-            textBoxOut.Text += nTry + "#   " + textBoxIn.Text + " : " + nBall + " Ball " + nStrike + " Strike \r\n";
-            textBoxIn.Text = "";
-
-            if (nStrike == 4)
-                textBoxOut.Text += " You win !\r\n";
+            foreach (int i in b)                     //연산이 끝난 b 배열을 출력합니다.
+            {
+                textBox2.Text += i + " ";
+            }
         }
-
-
     }
 }
-
