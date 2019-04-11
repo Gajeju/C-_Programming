@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Baseball_KDH23
+{
+    public partial class Form1 : Form
+    {
+        Random rand;
+        int[] setNum, playNum;
+        int nTry, nStrike, nBall;
+
+        public Form1()
+        {
+            InitializeComponent();
+            rand = new Random((int)DateTime.Now.Ticks);  // 랜덤수 초기화
+            setNum = new int[4];  // 컴퓨터가 생성한 데이터 셋
+            playNum = new int[4];  // 사용자가 예측한 숫자 셋
+            nTry = 0;    // 플레이 횟수 숫자
+
+        }
+        // 서로다른 4개의 랜덤 숫자셋 생성 ---------------------------
+        public int[] getDataSet()
+        {
+            bool flag;
+            int[] checkSet = new int[10];
+            int[] aSet = new int[4];
+
+          //  label1.Text = "";
+            aSet[0] = rand.Next(8) + 1;
+            checkSet[aSet[0]] = 1;   // 선택된 인덱스 숫자를 1로세트 
+
+            for (int i = 1; i < 4; i++)
+            {
+                do
+                {
+                    flag = true;
+                    aSet[i] = rand.Next(8) + 1;
+                    if (checkSet[aSet[i]] == 1) flag = false;
+                    else checkSet[aSet[i]] = 1;
+
+                } while (flag == false);
+            }
+            return aSet;
+        }
+        // 입력 창에서 데이터 입력으로부터 사용자 숫제셋 생성------------------------
+        public int[] getPlayData(string s)
+        {
+            int[] p = new int[4];
+            int n2;
+
+            n2 = int.Parse(s);
+
+            p[0] = n2 / 1000;
+            p[1] = (n2 / 100) % 10;
+            p[2] = (n2 / 10) % 10;
+            p[3] = n2 % 10;
+
+            return p;
+        }
+
+        // 리셋버튼 클릭시 출력창 초기화 및 컴퓨터 숫자셋 생성----------------------
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            setNum = getDataSet();
+            //label1.Text = "";
+            textBoxOut.Text = "";
+            textBoxIn.Text = "";
+            nTry = 0;
+            //checkBox1.Checked = false;
+        }
+        // 플레이 버튼 누를 경우 ------------------------------------------
+        private void buttonPlay_Click(object sender, EventArgs e)
+        {
+            playNum = getPlayData(textBoxIn.Text);
+            nTry++;
+            nStrike = 0;    // 스트라익 숫자  0으로 초기화
+            nBall = 0;     // 볼 숫자 0으로 초기화
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (playNum[i] == setNum[j])
+                    {
+                        if (i == j) nStrike++;   // 위치와 숫자가 같으면 스트라익
+                        else nBall++;            // 위치는 달라도 숫자가 같으면 볼
+                    }
+                }
+            }
+
+            textBoxOut.Text += nTry + "#   " + textBoxIn.Text + " : " + nBall + " Ball " + nStrike + " Strike \r\n";
+            textBoxIn.Text = "";
+
+            if (nStrike == 4)
+                textBoxOut.Text += " You win !\r\n";
+        }
+
+
+    }
+}
+
