@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR0414_KDH23
+{
+    /*구조체는 클레스와 매우 유사하지만 클레스는참조형이고 구조체는 값형이다. 또한 구조체는 상속이 불가능 하다.
+      생성자는 있지만 소멸자는 없다. 좌표값과 같은 특정 데이터들이 모여있을때 구조체를 자주 사용함*/
+    struct Point
+    {
+        public int x, y;                      // x, y 좌표
+        public Point(int x, int y)            //구조체의 생성자
+        {          
+            this.x = x;                       //매개변수가 아닌 클래스 내의 변수
+            this.y = y;
+        }
+        override public string ToString()  // Tostring 이라는 메소드는 원래 문자열로 바꾸는 메소드 이지만 재정의 하여 사용
+        {   
+            return "(" + x + ", " + y + ")";
+        }
+    }
+
+    class Program
+    {
+        public static void Main()
+        {
+            Point[] pts = new Point[3];  //구조체 배열을 생성하고 객체 3개 생성
+            pts[0] = new Point(100, 100);
+            pts[1] = new Point(100, 200);
+            pts[2] = new Point(200, 100);
+            foreach (Point pt in pts)    //pts 에 있는 pt를 모두 출력
+                Console.WriteLine(pt.ToString());
+        }
+    } 
+
+}
