@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR0409_KDH23
+{
+    class Program
+    {
+            public string Message
+        {
+            get { return Console.ReadLine(); }
+            set { Console.WriteLine(value); }
+        }
+        public static void Main()
+        {
+            Program obj = new Program();
+            obj.Message = obj.Message;
+        }
+    }
+
+ }
+
+
