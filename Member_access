@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR0408_KDH23
+{
+    class Fraction
+    {
+        private int numerator;     //참조 불가능한 정수형 변수 선언
+        private int denominator;   //참조 불가능한 정수형 변수 선언
+        public int Numerator
+        {
+            get { return numerator; }
+            set { numerator = value; }
+        }
+        public int Denominator
+        {
+            get { return denominator; }
+            set { denominator = value; }
+        }
+        override public string ToString()
+        {
+            return (numerator + "/" + denominator);
+        }
+    }
+    class PropertyApp
+    {
+        public static void Main()
+        {
+            Fraction f = new Fraction(); int i;
+            f.Numerator = 1;           	//Numerator 의 셋 연산자 
+            i = f.Numerator + 1;      	//Numerator 의 겟 연산자
+            f.Denominator = i;       	//Denominato 의 셋 연산자
+            Console.WriteLine(f.ToString());
+        }
+
+    }
+}
