@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR0407_KDH23
+{
+    class Program
+    {
+        void SomeThing()                                  //매개변수가 없는 SomeThing 매소드
+        { Console.WriteLine("SomeThing() is called."); }
+        void SomeThing(int i)                             //배개변수를 정수형 1개를 갖는 SomeThing 매소드
+        { Console.WriteLine("SomeThing("+ i + ") is called."); }
+
+        void SomeThing(int i, int j)                      //매개변수를 정수형 2개를 갖는 SomeThing 매소드
+        { Console.WriteLine("SomeThing(int,int) is called."); }
+        void SomeThing(double d)                          //매개변수를 실수형 1개를 갖는 SomeThing 매소드
+        { Console.WriteLine("SomeThing(double) is called."); }
+
+        public static void Main()
+        {
+            Program obj = new Program();                //someThing 메소드는 정적 메소드가 아니기 때문에 객체를 생성해 주어야 한다.
+            obj.SomeThing(); obj.SomeThing(526);        //차례로 매개변수 없음, 정수형1개, 정수형 2개, 실수형 을 매개변수로 갖는 SomeThing 매소드 호출
+            obj.SomeThing(54, 526); obj.SomeThing(5.26);
+        }
+
+    }
+}
