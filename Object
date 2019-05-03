@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR0406_KDH23
+{
+    class Program
+    {
+        static void ParameterArray(params object[] obj)   //static 으로 선언하여 클래스 단위로 존재
+                                                          //objct 를 사용하여 어러 종류의 매개변수 형을 받을 수 있다
+        {
+            for (int i = 0; i < obj.Length; i++)    //objcet 배열에 매개변수를 받아 0번인덱스부터 마지막 인덱스까지 출력
+                Console.WriteLine(obj[i]);
+        }
+
+        public static void Main()
+        {
+            ParameterArray(123, "Hello", true, 'A');  //parameterArray 메소드 호출
+        }
+
+    }
+}
