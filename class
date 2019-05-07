@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR0405_KDH23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] X;           //읽어올 문자열을 정수 배열로 바꾸어 배정
+            string[] S;        //읽어올 문자열을 배정할 변수
+            Console.WriteLine("컴마로 분리된 숫자를 입력하세요.");
+            S = Console.ReadLine().Split(',');      //읽어온 문자열을  ,로 나누어 배정
+            X = new int[S.Length];
+            for (int i = 0; i < S.Length; i++)
+                X[i] = int.Parse(S[i]);
+            BubbleSort(X);     //배열은 참조형이기 때문에 변수를 바꿀시 주소에 값이 바뀜
+
+            Console.WriteLine("Bubble 정렬 후: ");
+            for (int i = 0; i < S.Length; i++)
+                Console.Write("{0}, ", X[i]);
+            Console.WriteLine();
+
+        }
+        public static void BubbleSort(int[] a)
+        {
+            int i, flg, temp;  //flg 변수는 루프를 계속 돌게 만들거나 끝나게 만드는 역할
+
+            do
+            {
+                flg = 0;
+                for (i = 0; i < a.Length - 1; i++)
+                {
+                    if (a[i] > a[i + 1])     //앞것과 뒤에 것을 비교하여 작은것을 앞으로 오게하고 flg 를 이용하여 계속 루프를 돌게 만듬
+                    {
+                        flg = 1;
+                        temp = a[i]; a[i] = a[i + 1]; a[i + 1] = temp;
+                    }
+                }
+            } while (flg == 1);             //모든 경우에서 뒤에것이 앞에것보다 크다면 루프가 끝난다
+
+        }
+
+    }
+}
