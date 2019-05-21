@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR0402_KDH23
+{
+
+    class Program
+    {
+        int instanceVariable;       //정적변수가 아니기 때문에 객체를 생성해 주어야 한다
+        static int staticVariable;  //정적변수 클래스 단위로 존재한다
+
+        static void Main(string[] args)
+        {
+            Program obj = new Program();
+            obj.instanceVariable = 10;                            // ok
+
+            //Program.instanceVariable = 10;   	                  //객체생성을 해 주어야 한다. 
+
+            Program.staticVariable = 20;          	              // ok
+
+            //obj.staticVariable = 20;                            //객체 단위가 아닌 클래스 단위
+
+            Console.WriteLine("instance variable={0}, static variable={1}",obj.instanceVariable, Program.staticVariable);
+            //
+        }
+    }
+}
