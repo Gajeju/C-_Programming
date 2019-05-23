@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR0401_KDH23
+{
+    class Person   //Person 이라는 이름의 클래스 생성
+    {
+            public int age;
+            public int height;
+
+        public Person()   //Person 클레스의 생성자
+        {
+            age = 1;      //변수값 초기화
+            height = 30;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person stk;             //객체 선언 Person stk = new Person(); (선언과 생성 동시)
+            stk = new Person();     //객체 생성
+
+            Person stk2;            //객체를 하나 더 생성하여 Person 클래스의 변수들을 한번 더 쓸 수 있다
+            stk2 = new Person();
+
+            Console.WriteLine("age= {0}  height={1}", stk.age, stk.height); //Person 클래스에 있는 변수를 출력
+
+            stk.age = 25;          //person 클래스의 변수를 다시 초기화 한다
+            stk.height = 175;
+            Console.WriteLine("age= {0}  height={1}", stk.age, stk.height);  //다시 초기화된 변수값 출력
+
+            stk2.age = 18;
+            stk2.height = 165;
+            Console.WriteLine("age= {0}  height={1}", stk2.age, stk2.height);
+        }
+        
+
+    }
+}
