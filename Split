@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+//2015108223 김동현 컴퓨터프로그래밍 과제
+
+namespace PR0210_KDH23
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string[] svNum;
+            int[] aNum;
+            int m;
+
+            svNum = textBox1.Text.Split(',');          //svNum 에 textBox의 문자열을 ,로 나누어 입력
+            aNum = new int[svNum.Length];              //svNum 의 길이만큼 aNum의 객체 생성
+
+            m = int.Parse(svNum[0]);
+            for (int i = 1; i < svNum.Length; i++)
+            {
+                aNum[i] = int.Parse(svNum[i]);         //aNum 에 svNum의 값을 정수화 하여 배정
+                m = (m > aNum[i]) ? m : aNum[i];       //m과 aNum[i] 를 비교하여 큰 값을  m에 배정
+            }
+            label2.Text = " 최대값 = " + m.ToString(); //m 출력
+
+
+
+        }
+    }
+}
