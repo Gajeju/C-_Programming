@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PR0209_KDH23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i; double x;                  //i는 정수형 x는 실수형으로 선언
+            i = 1 / 2;                        //i 에 1/2 배정 (정수/정수 의 값은 정수가 됨으로 1/2 = 0)           
+            x = 1 / 2;                        //x 에 1/2 배정 (x변수가 실수형이라고 하더라도 뒤의 연산이 정수/정수 임으로 정수가 됩니다.)
+            Console.Write("i = " + i);
+            Console.WriteLine(", x = " + x);
+            i = (int)(1 / 2.0);               // 1/2.0 = 0.5 인데 정수형으로 형변환을 해 주면 0이 되어 i에 0배정
+            x = 1 / 2.0;                      // 1/2.0 의 결과는 정수/실수 이므로 0.5 가 실수변수인 x 에 배정
+            Console.Write("i = " + i);
+            Console.WriteLine(", x = " + x);
+
+        }
+    }
+}
