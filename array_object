@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//2015108223 김동현 컴퓨터프로그래밍 과제
+
+namespace PR0208_KDH23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] a = { 1, 2, 3, 4, 5 };      //정수배열 a를 선언과 동시에 객체를 생성
+            int[] b = new int[5];             //b배열을 선언하고 객체 5개를 선언
+            for (int i = 0; i < 5; i++)       //i는 0부터 5보다 작을때까지 1씩 증가시킬 때마다 아래의 문장 반복
+            {
+                b[i] = a[4 - i];              /*b에 0번부터 4번 인덱스에 a의 4번부터 0번 인덱스의 값을 배정
+                                                (객체를 5개 생성하면 그 배열의 인덱스는 0~4가 됩니다.)*/ 
+
+                Console.WriteLine("i:{0}\t a[i]={1}\t b[i]={2}", i, a[i], b[i]);     //i값 출력 후 한칸 넘김 , a배열의 값 출력 후 한칸 넘김, b배열의 값 출력
+
+            }
+
+        }
+    }
+}
