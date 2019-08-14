@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//2015108223 김동현 컴프터프로그래밍 과제
+
+namespace PR0202_KDH23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool flag;                                        //bool 변수 flag 선언
+
+            for (int i = 2; i <= 100; i++)                    // i는 2부터 100까지 1씩 증가
+            {
+                flag = true;                                  // flag 변수 초기화 (디폴트값 flase)
+                for (int j = 2; j < i; j++)                   /* for문 안에 for문, 바깥의 for문인 i 가 1씩 증가할때마다 j가 2부터
+                                                                 i보다 작을때까지 1씩 더해지고 그 아래 문장으을 수행*/
+                {
+                    if (i % j == 0) flag = false;             //i를 j로 나눈 나머지가 0 이라면 flag는 거짓이 된다.
+                }
+                if (flag == true) Console.Write("{0} ", i);  //flag 가 참, 즉 i를 j 로 나눈 나머지가 0이 아니라면 그 때 i 값을 출력한다.
+            }
+            Console.WriteLine();
+        }
+    }
+}
