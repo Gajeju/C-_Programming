@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//2015108223 김동현 컴퓨터프로그래밍 과제
+
+namespace PR0201_KDH23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int i = 1; i<=100; i++)  //i를 1부터 100까지 증가시킬 동안 밑에 작업을 반복하는 for 루프
+            {
+                if (i % 5 == 0) Console.WriteLine("{0} ", i); /* i가 5로 나누어질 경우 그  때 i를 출력하고 한칸 넘깁니다
+                                                                 (예제에는 10으로 나누고 한칸 띄었으나, 실습시간에 5로 바꾸라고 하셔서 바꿨습니다.)*/
+                else Console.Write("{0} ",i);                 // 그 외의 경우 즉, i가 5로 나누어지지 않을 경우 그 때 i를 출력합니다.
+            }
+        }
+    }
+}
