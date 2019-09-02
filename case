@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//2015108223 김동현 컴퓨터프로그래밍 과제
+
+namespace EX0307_KDH23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i;
+            i = int.Parse(Console.ReadLine());              //문자열을 읽어와서 정수로 변환하여 i에 배정
+
+            switch (i)
+            {
+                case 1:
+                    Console.WriteLine("One"); break;        //i가 1일 경우 One 출력
+                case 2:
+                    Console.WriteLine("Two"); break;        //i가 2일 경우 Two 출력
+                case 3:
+                    Console.WriteLine("Three"); break;      //i가 3일 경우 Three 출력
+                case 4:
+                    Console.WriteLine("Four"); break;       //i가 4일 경우 Four 출력
+                default:
+                    Console.WriteLine("Over Four"); break;  //그 오의 경우 Over Four 출력
+
+            }
+        }
+    }
+}
