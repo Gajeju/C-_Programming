@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//2015108223 김동현 컴퓨터프로그래밍 과제
+
+namespace EX0306_KDH23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i, j;
+            for (i = 1; i <= 9; i++)                                       //i를 1부터 9까지 1씩 증가시킵니다.
+
+            {
+                for (j = 2; j <= 5; j++)                                   //i가 1씩 증가할때 마다 j를 2부터 5까지 1씩 증가시킵니다
+                {
+                    Console.Write(j + "*" + i + "= " + (i * j) + "\t");    //j를 증가시키며 i*j를 출력 후 한줄을 넘깁니다
+                }
+                Console.WriteLine();                                       //2~5단과 6~9단을 구분시켜주기 위하여 한줄을 넘깁니다.
+            }
+            Console.WriteLine();
+            for (i = 1; i <= 9; i++)                                       //같은 방법으로 6~9단 연산 후 출력합니다.
+            {
+                for (j = 6; j <= 9; j++)
+                {
+                    Console.Write(j + "*" + i + "= " + (i * j) + "\t");
+
+                }
+                Console.WriteLine();
+
+            }
+        }
+    }
+}
