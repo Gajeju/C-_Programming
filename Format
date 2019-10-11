@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//2015108223 김동현 컴퓨터프로그래밍 과제
+
+namespace EX0305_KDH23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("1) {0,-5},{1,5},{2,5}", 1.2, 1.2, 123.45);  // 1.2 5번째 자리 까지 좌측 정렬하여  출력, 1.2를 5번째자리 까지 출력, 123.45를 5번째 자리까지 출력
+            double d = Math.PI;
+            Console.WriteLine("2) {0}", d);                                //수학기호 파이 출력
+            Console.WriteLine("3) {0:C}", d);   // decimal                 //통화표시
+            Console.WriteLine("4) {0:E}", d);   // exponential             //지수형태
+            Console.WriteLine("5) {0:F}", d);   // fixed point             //고정 소수점 형태
+            Console.WriteLine("6) {0:G}", d);   // general                 //고정 소수점 또는 지수 형태 중 간략한 형태를 선택
+            Console.WriteLine("7) {0:P}", d);   // percent                 //백분율
+            Console.WriteLine("8) {0:R}", d);   // round-trip              //결과 스트링을 다시 읽었을 때, 원 값과 동일함을 보장
+            Console.WriteLine("9) {0:X}", 255);   // hexadecimal           //16진수
+            Console.WriteLine("10) {0:00.000}", d);
+            Console.WriteLine("11) {0:##.###}", d);
+
+        }
+    }
+}
